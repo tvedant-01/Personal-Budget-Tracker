@@ -11,7 +11,7 @@ A simple command-line application built in Python to help users manage their inc
 4. View income & expense history
 5. Simple menu-driven interface
 
-🛠️ Technologies Used
+🛠️ Technologies Used In Code
 
 1. Python 3.13
 2. Core Python concepts:
