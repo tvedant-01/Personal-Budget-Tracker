@@ -18,8 +18,9 @@ A simple command-line application built in Python to help users manage their inc
   a. Lists, 
   b. Loops, 
   c. Conditionals, 
-  d. Input/Output
-3. VS Code
+  d. Input/Output,
+  e. Exception Handling
+4. VS Code
 
 📖 Usage Guide
 When you run the program, you’ll see a menu with options:
