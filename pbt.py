@@ -1,5 +1,5 @@
 #  Personal Budget Tracker 
-#In this project,fundamental Python concepts such as lists, loops, conditionals, and basic input/output methods are used.
+#In this project,fundamental Python concepts such as lists, loops, conditionals,exception handling and basic input/output methods are used.
 
 print("Welcome to Personal Budget Tracker".center(50,"-"))
 
@@ -17,26 +17,51 @@ while True:
     choice = input("Enter your choice ranging between 1 to 5: ")
 
     if choice == "1":
-        income = float(input("Enter income amount: ₹"))
-        User_income.append(income)
-        print("Income added successfully.")
+        try:
+            income = float(input("Enter income amount: ₹"))
+            if income < 0:
+                print("Income cannot be negative.")
+                continue
+            User_income.append(income)
+            print("Income added successfully.")
+        except ValueError:
+            print(" Invalid input. Please enter a valid number.")
+
 
     elif choice == "2":
-        expense = float(input("Enter expense amount: ₹"))
-        User_expense.append(expense)
-        print("Expense added successfully.")
+        try:
+            expense = float(input("Enter expense amount: ₹"))
+            if expense < 0:
+                print("Expense cannot be negative.")
+                continue
+            User_expense.append(expense)
+            print("Expense added successfully.")
+        except ValueError:
+            print(" Invalid input. Please enter a valid number.")
 
     elif choice == "3":
         total_income = sum(User_income)
         total_expense = sum(User_expense)
         balance = total_income - total_expense
+        print("\n--- Current Financial Summary ---")
         print(f"\nTotal Income: ₹{total_income}")
         print(f"Total Expenses: ₹{total_expense}")
         print(f"Current Balance: ₹{balance}")
 
     elif choice == "4":
-        print("\nIncome History:", User_income)
-        print("Expense History:", User_expense)
+        print("\n--- Transaction History ---")
+        if User_income:
+            print("Income Entries:")
+            for i,amount in enumerate(User_income,1):
+                print(f"{i}. ₹{amount:.2f}")
+        else: 
+            print("No income records found")
+        if User_expense:
+            print("Expense Entries:")
+            for i,amount in enumerate(User_expense,1):
+                print(f"{i}. ₹{amount:.2f}")
+        else:
+            print("No expense records found.")
 
     elif choice == "5":
         print("Exiting Budget Tracker , Goodbye!")
@@ -44,4 +69,3 @@ while True:
 
     else:
         print("Invalid choice\n Kindly Please select between 1 and 5.")
-
